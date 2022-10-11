@@ -18,7 +18,7 @@ spec:
         instrumentation.opentelemetry.io/inject-python: "true"        
     spec:
       containers:
-      - image: <acrname>.azurecr.io/python-api/predict-flower:1.1
+      - image: otel-acr.azurecr.io/python-api/predict-flower:1.1
         name: predict-flower
         # IfNotPresent, Never
         imagePullPolicy: Always
