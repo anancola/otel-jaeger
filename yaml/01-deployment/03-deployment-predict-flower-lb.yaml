@@ -1,0 +1,27 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: predict-flower
+  name: predict-flower
+  namespace: app
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: predict-flower
+  template:
+    metadata:
+      labels:
+        app: predict-flower
+      annotations:        
+        instrumentation.opentelemetry.io/inject-python: "true"        
+    spec:
+      containers:
+      - image: <acrname>.azurecr.io/python-api/predict-flower:1.1
+        name: predict-flower
+        # IfNotPresent, Never
+        imagePullPolicy: Always
+        ports:
+        - containerPort: 8000
+      restartPolicy: Always
