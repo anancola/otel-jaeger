@@ -10,6 +10,9 @@ There are two modes for OpenTelemetry Collector: sidecar and deployments. For si
 ![architecture](/images/architecture.png)
 
 # Pre-requistes
+## The container registry
+The excercises will deploy the python api which is an image come from container registery. You may have your own image or create one azure-container-registry with name: otel-acr
+
 ## Create namespaces
 $ kubectl create namespace observability
 
